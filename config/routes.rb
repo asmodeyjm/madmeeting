@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
+  resources :games, only: [:index] do
+    member do
+      get :join
+    end
+  end
+
 
 
   # root to: 'welcome#index'

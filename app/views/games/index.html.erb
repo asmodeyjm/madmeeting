@@ -1,0 +1,7 @@
+<%@games.each do |game| %>
+  <%=game.title %> | <% unless current_user.games.include?(game) %>
+
+  <%= link_to "Join this Game", join_game_path(game) %>
+  <% end %>
+  <br><br>
+  <% end %>
