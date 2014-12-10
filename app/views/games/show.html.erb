@@ -7,5 +7,6 @@
   <%= f.text_field :description, value: current_user.options.last.description  %>
   <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :game_id, value: @game.id %>
   <%= f.submit 'Ready' %>
 <% end %>

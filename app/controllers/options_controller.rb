@@ -1,13 +1,21 @@
 class OptionsController < ApplicationController
+
+
+
   def create
+    puts "TEST"
+    puts params[:option][:game_id]
+    @game = Game.find(params[:option][:game_id])
     @option = Option.new(option_params)
-    if @option.save
-      flash[:success] = "Added the trigger."
-      redirect_to :back
-    else
-      flash[:error] = "There was a problem adding that option."
-      render action: :new
-    end   
+
+      if @game.option_limit_met(current_user)
+        flash[:error] = "You've already added an option."
+        redirect_to :back
+      else
+        flash[:success] = "You added an option!"
+        redirect_to :back
+      
+      end   
   end
   def destroy
     @option = Option.find(params[:id])
