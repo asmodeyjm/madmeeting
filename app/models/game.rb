@@ -6,7 +6,7 @@ class Game < ActiveRecord::Base
 
 
   def option_limit_met(user)
-    if self.users.find(user.id).options.count > 0 
+    unless self.users.find(user.id).option.nil? 
       return true
     end
 

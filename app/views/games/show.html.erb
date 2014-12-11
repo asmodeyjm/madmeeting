@@ -1,10 +1,11 @@
 
 <%= form_for Option.new, url: options_path, html: {multipart: true} do |f| %>
   Option: 
-  <% if current_user.options.empty? %>
+  <% if current_user.option.nil? %>
   <%= f.text_field :description %>
   <% else %>
-  <%= f.text_field :description, value: current_user.options.last.description  %>
+  <%= f.text_field :description, value: current_user.
+      option.description  %>
   <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :game_id, value: @game.id %>
