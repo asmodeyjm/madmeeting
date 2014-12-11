@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
          
   has_many :user_games
   has_many :games, through: :user_games
-  has_many :options
+  has_one :option
 
 end
