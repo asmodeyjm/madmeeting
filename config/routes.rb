@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'games#index', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+end
 
   get 'welcome/index'
   
@@ -13,6 +21,7 @@ Rails.application.routes.draw do
 
   # get '/patients/:id', to: 'patients#show', as: 'patient' 
 
-  root 'frank#index'
+  # root 'frank#index' RIP: 12-11-14
   
 end
+
