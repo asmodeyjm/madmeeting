@@ -14,7 +14,7 @@ class GamesController < ApplicationController
     puts @game.user_limit_met
 
     if current_user.in_game?
-      redirect_to game_path(current_user.games.firs)
+      redirect_to game_path(current_user.games.first)
     else
       if @game.user_limit_met
         flash[:notice] = "Game is full!"
