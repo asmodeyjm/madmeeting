@@ -17,11 +17,11 @@ class GamesController < ApplicationController
       redirect_to game_path(current_user.games.first)
     else
       if @game.user_limit_met
-        flash[:notice] = "Game is full!"
+        flash[:error] = "Game is full!"
         redirect_to :back 
       else
         @user_game = UserGame.create(user_id: current_user.id, game_id: @game.id)
-        flash[:notice] = "#{@game.title} was joined"
+        flash[:success] = "#{@game.title} was joined"
         redirect_to @user_game.game     
       end
     end
@@ -36,7 +36,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
-      flash[:notice] = "Added game."
+      flash[:success] = "Added game."
       redirect_to games_path
     else
       flash[:error] = "There was a problem adding that game."
