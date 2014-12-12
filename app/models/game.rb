@@ -19,6 +19,6 @@ class Game < ActiveRecord::Base
     end
   end
   def destroy_options
-    options.each {|o| o.destroy}
+    self.users.each {|u| u.option.destroy }
   end
 end
