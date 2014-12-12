@@ -36,7 +36,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
-      flash[:success] = "Added game."
+      flash[:notice] = "Added game."
       redirect_to games_path
     else
       flash[:error] = "There was a problem adding that game."

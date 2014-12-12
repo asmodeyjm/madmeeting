@@ -17,7 +17,13 @@
            <% end %>
          </div>
 
-  <p class="notice"><%= notice %></p>
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end %>
+
+<% if flash[:notice] %>
+  <p class="success"><%= flash[:notice] %></p>
+<% end %>
        <p class="alert"><%= alert %></p>
 <%= yield %>
 

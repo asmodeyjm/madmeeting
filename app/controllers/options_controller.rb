@@ -8,10 +8,13 @@ class OptionsController < ApplicationController
     @game = Game.find(params[:option][:game_id])
     @option = Option.new(option_params)
 
+
       if @game.option_limit_met(current_user)
+
         flash[:error] = "You've already added an option."
         redirect_to :back
       else
+        @option.save
         flash[:success] = "You added an option!"
         redirect_to :back
       

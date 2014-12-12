@@ -1,6 +1,6 @@
 <%@games.each do |game| %>
   <%= game.title %> | 
-  <% if current_user.games.include?(game) %>
+  <% if current_user.game == game %>
     <%= link_to "Go to Game", game_path(game) %>
   <% else %>
     <%= link_to "Join this Game", join_game_path(game) %>

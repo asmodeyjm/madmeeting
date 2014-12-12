@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
-  has_many :user_games, dependent: :destroy
-  has_many :games, through: :user_games
+  has_one :user_game
+  has_one :game, through: :user_game
   has_one :option
 
   def in_game?
