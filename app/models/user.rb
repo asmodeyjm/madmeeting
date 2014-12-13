@@ -5,8 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
   has_one :user_game
-  has_one :game, through: :user_game
-  has_one :option
+  has_many :games, through: :user_game
+  has_many :options, through: :user_game
+
+  def game
+    self.games.first
+  end
+
+  def option
+    self.options.first
+  end
+
 
   def in_game?
     UserGame.where(user_id: self.id).any?

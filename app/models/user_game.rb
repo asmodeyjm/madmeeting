@@ -1,4 +1,5 @@
 class UserGame < ActiveRecord::Base
+  has_many :options, dependent: :destroy
   belongs_to :user
   belongs_to :game
 

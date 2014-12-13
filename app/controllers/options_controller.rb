@@ -4,8 +4,8 @@ class OptionsController < ApplicationController
 
   def create
     puts "TEST"
-    puts params[:option][:game_id]
-    @game = Game.find(params[:option][:game_id])
+    puts params[:option][:user_game_id]
+    @game = UserGame.find(params[:option][:user_game_id]).game
     @option = Option.new(option_params)
 
 
@@ -27,7 +27,7 @@ class OptionsController < ApplicationController
 
  private
   def option_params
-    params[:option].permit(:description, :user_id)
+    params[:option].permit(:description, :user_game_id)
   end
 end
 
