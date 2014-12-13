@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20141212202907) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
     t.integer  "user_game_id"
   end
 
+  add_index "options", ["game_id"], name: "index_options_on_game_id"
   add_index "options", ["user_game_id"], name: "index_options_on_user_game_id"
 
   create_table "user_games", force: true do |t|
