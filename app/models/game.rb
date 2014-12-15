@@ -9,7 +9,10 @@ class Game < ActiveRecord::Base
     unless self.users.find(user.id).option.nil? 
       return true
     end
+  end
 
+  def self.num_users
+    2
   end
 
   def user_limit_met
