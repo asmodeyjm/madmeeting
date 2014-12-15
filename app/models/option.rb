@@ -1,6 +1,5 @@
 class Option < ActiveRecord::Base
   belongs_to :user_game
-  belongs_to :game
 
   # after_create :check_ready_status?
   after_create :start_game
@@ -14,7 +13,11 @@ class Option < ActiveRecord::Base
 
 
   def start_game
-    SEND THAT NOTIF if players_ready?
+    if players_ready?
+      game = self.user_game.game
+      game.active = true
+      game.save
+    end
   end
 
 end
