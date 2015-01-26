@@ -2,6 +2,6 @@
 
 Found at http://mad-meeting.herokuapp.com/
 
--Drinking app
--4 Users each with one Option
+-Drinking app <br>
+-4 Users each with one Option <br>
 -Options are word triggers that require User who says word to drink
