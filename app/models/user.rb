@@ -20,6 +20,19 @@ class User < ActiveRecord::Base
   def in_game?
     UserGame.where(user_id: self.id).any?
   end
+
+  def can_join_game?
+    UserGame.where(user_id: self.id).any?
+  end
+
+  def in_this_game? game
+    UserGame.where(user_id: self.id, game_id: game).any?
+  end
+
+  def current_game
+    self.games.first rescue nil
+  end
+
 end
 
 # unless current_user.in_game

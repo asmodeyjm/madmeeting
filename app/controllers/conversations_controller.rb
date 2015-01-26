@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  class ConversationsController < ApplicationController
   before_filter :authenticate_user!
  
   layout false
@@ -28,4 +29,5 @@ class ConversationsController < ApplicationController
   def interlocutor(conversation)
     current_user == conversation.recipient ? conversation.sender : conversation.recipient
   end
+end
 end

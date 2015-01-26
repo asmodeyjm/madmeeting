@@ -7,4 +7,3 @@ module MessagesHelper
     message.user == message.conversation.sender ? message.conversation.sender : message.conversation.recipient
   end
 end
- 

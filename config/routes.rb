@@ -14,6 +14,7 @@ end
   resources :games do
     member do
       get :join
+      get :set_options
     end
   end
   resources :options, only: [:create, :destroy]
